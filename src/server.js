@@ -45,16 +45,17 @@ app.use(notFound)
 // Global xatoliklarni ushlovchi middleware (eng oxirida bo'lishi shart)
 app.use(errorHandler)
 
+const PORT = process.env.PORT || 5432;
+
 const startServer = async () => {
     await connectDB()
 
-    app.listen(5432, (err) => {
+    app.listen(PORT, (err) => {
         if (err) {
-            console.error("5432-port band yoki xato:", err.message)
-            console.error("Eski serverni to'xtating (Ctrl+C) yoki jarayonni o'chiring: netstat -ano | findstr :5432")
+            console.error(`${PORT}-port band yoki xato:`, err.message)
             process.exit(1)
         }
-        console.log(`Local link: http://localhost:5432  Skins: /api/skins  Users: /api/users  Cases: /api/cases`);
+        console.log(`Server ishladi: port ${PORT}  Skins: /api/skins  Users: /api/users  Cases: /api/cases`);
     })
 }
 

@@ -8,6 +8,7 @@
     "start": "node src/server.js",
     "test": "node test-errors.js",
     "make-admin": "node src/scripts/makeAdmin.js",
+    "build": "npm --prefix client install && npm --prefix client run build",
     "client:install": "npm --prefix client install",
     "client": "npm --prefix client run dev",
     "build:client": "npm --prefix client run build",
