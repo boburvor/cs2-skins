@@ -1,0 +1,13 @@
+# Lokal MongoDB (Atlas o'rniga). Ishga tushirish:  docker compose up -d
+# Keyin .env da:  MONGODB_URI=mongodb://127.0.0.1:27017/skinmarket
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
